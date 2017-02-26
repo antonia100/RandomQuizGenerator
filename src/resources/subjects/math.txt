@@ -1,0 +1,10 @@
+Which one of the following is the equation of a circle?|x2 + y2 + 4x - 6y + 5xy - 12 = 0|x2 - y2 + 4x - 6y + 16 = 0|x2 + y2 + 4x - 6y - 12 = 0|x2 + y2 + 4x - 6y + 16 = 0|2
+What is one Interior Angle of a regular octakaidecagon (an eighteen-sided polygon)?|157.5°|160°|162°|168°|1
+In how many ways can a group of 5 men and 2 women be made out of a total of 7 men and 3 women?|63|90|126|45|0
+In how many ways can the letters of the word 'LEADER' be arranged?|72|144|360|720|2
+Look at this series: 2, 1, (1/2), (1/4), ... What number should come next?|(1/3)|(1/8)|(2/8)|(1/16)|1
+Look at this series: 53, 53, 40, 40, 27, 27, ... What number should come next?|12|14|27|53|1
+Look at this series: 201, 202, 204, 207, ... What number should come next?|205|208|210|211|3
+A vendor bought toffees at 6 for a rupee. How many for a rupee must he sell to gain 20%?|3|4|5|6|2
+A man buys a cycle for Rs. 1400 and sells it at a loss of 15%. What is the selling price of the cycle?|Rs. 1090|Rs. 1160|Rs. 1190|Rs. 1202|2
+Two numbers are respectively 20% and 50% more than a third number. The ratio of the two numbers is:|2 : 5|3 : 5|4 : 5|6 : 7|2
