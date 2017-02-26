@@ -13,35 +13,16 @@ public class Question {
         this.answerIndex = answerIndex;
     }
 
-    public int getQuestionIndex() {
-        return questionIndex;
-    }
-
-    public void setQuestionIndex(int questionIndex) {
-        this.questionIndex = questionIndex;
-    }
-
     public String getQuestion() {
         return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
     }
 
     public String[] getOptions() {
         return options;
     }
 
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
-
     public int getAnswerIndex() {
         return answerIndex;
     }
 
-    public void setAnswerIndex(int answerIndex) {
-        this.answerIndex = answerIndex;
-    }
 }

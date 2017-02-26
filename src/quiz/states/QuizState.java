@@ -7,16 +7,16 @@ public class QuizState {
     private Handler handler;
     private QuizFrame quizFrame;
 
-    public QuizState(Handler handler){
+    public QuizState(Handler handler) {
         this.handler = handler;
     }
 
-    public void showNewQuiz(){
+    public void showNewQuiz() {
         quizFrame = new QuizFrame(this.handler);
         handler.getDisplay().add(quizFrame);
     }
 
-    public QuizFrame getQuizFrame(){
+    public QuizFrame getQuizFrame() {
         return this.quizFrame;
     }
 }

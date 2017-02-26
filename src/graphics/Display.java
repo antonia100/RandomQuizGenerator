@@ -32,5 +32,4 @@ public class Display extends JFrame{
         pack();
     }
 
-
 }

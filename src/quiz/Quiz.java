@@ -104,33 +104,17 @@ public class Quiz {
     }
 
 
-    //getters
+    //getters and setters
     public Display getDisplay(){
         return this.display;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public int getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     public int getHeight() {
         return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public Handler getHandler() {
@@ -141,63 +125,20 @@ public class Quiz {
         this.handler = handler;
     }
 
-    public void setDisplay(Display display) {
-        this.display = display;
-    }
-
-    public MenuState getMenuState() {
-        return menuState;
-    }
-
-    public void setMenuState(MenuState menuState) {
-        this.menuState = menuState;
-    }
-
-    public QuestionManager getQuestionManager() {
-        return questionManager;
-    }
-
-    public void setQuestionManager(QuestionManager questionManager) {
-        this.questionManager = questionManager;
-    }
-
     public QuizGenerator getQuizGenerator() {
         return quizGenerator;
-    }
-
-    public void setQuizGenerator(QuizGenerator quizGenerator) {
-        this.quizGenerator = quizGenerator;
     }
 
     public QuizState getQuizState() {
         return quizState;
     }
 
-    public void setQuizState(QuizState quizState) {
-        this.quizState = quizState;
-    }
-
-    public Grader getGrader() {
-        return grader;
-    }
-
-    public void setGrader(Grader grader) {
-        this.grader = grader;
-    }
-
     public ArrayList<String> getSelectedOptions() {
         return selectedOptions;
-    }
-
-    public void setSelectedOptions(ArrayList<String> selectedOptions) {
-        this.selectedOptions = selectedOptions;
     }
 
     public int getResult() {
         return result;
     }
 
-    public void setResult(int result) {
-        this.result = result;
-    }
 }

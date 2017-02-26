@@ -4,7 +4,7 @@ import graphics.Results;
 import quiz.Handler;
 
 
-public class ResultsState extends State{
+public class ResultsState {
 
     private Handler handler;
     private Results results;
