@@ -10,6 +10,8 @@ import quiz.states.ResultsState;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Date;
+
 public class Quiz {
     private String title;
     private int width, height;
@@ -44,6 +46,7 @@ public class Quiz {
         //show menu when first launching
         Menu menu = new Menu(this.handler);
         menuState = new MenuState(menu, this.handler);
+        menuState.showMenu();
         quizState = new QuizState(this.handler);
         //hide menu if user decides to start a quiz and to go quizstate
         activateStartBtn();
@@ -71,6 +74,10 @@ public class Quiz {
             //evaluate
             Grader grader = new Grader(this.handler, quizState.getQuizFrame().getGeneratedQuestions(), selectedOptions);
             result = grader.gradeTotal();
+
+            //add the new entry to the history
+            Date now = new Date();
+            HistoryEntry newEntry = new HistoryEntry(String.valueOf(now), result, this.handler);
 
             //hide the quiz
             quizState.getQuizFrame().setVisible(false);

@@ -14,9 +14,11 @@ public class HistoryEntry {
         this.date = date;
         this.points = points;
         this.handler = handler;
+
+        writeEntry();
     }
 
-    public void writeEntry(){
+    private void writeEntry(){
         String historyPath = "src/resources/userhistory.txt";
         File file = new File(historyPath);
 

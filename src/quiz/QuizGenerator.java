@@ -45,7 +45,6 @@ public class QuizGenerator {
         files.add(literatureFile);
         files.add(mathFile);
         files.add(physicsFile);
-
     }
 
     public ArrayList<Question> generateQuestions() {

@@ -43,15 +43,11 @@ public class Menu extends JPanel {
             System.exit(0);
         });
 
-
         add(startBtn);
         add(exitBtn);
     }
 
-
-    //problems here
     public void updateHistory() {
-
         userHistory = new JTextArea();
         JTextArea userHistory = new JTextArea();
         userHistory.setPreferredSize(new Dimension(handler.getQuiz().getWidth() - 200, handler.getQuiz().getHeight() - 100));
@@ -83,6 +79,9 @@ public class Menu extends JPanel {
 
     }
 
+    public JTextArea getUserHistory(){
+        return this.userHistory;
+    }
 
     public JButton getStartBtn() {
         return this.startBtn;

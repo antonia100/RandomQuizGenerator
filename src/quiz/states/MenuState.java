@@ -20,17 +20,16 @@ public class MenuState {
     }
 
     public void hideMenu(){
-        this.menu.setVisible(false);
+        menu.setVisible(false);
     }
 
-    //problem!!!
     public void showMenu(){
-        this.menu.updateHistory();
-        this.menu.setVisible(true);
+        menu.updateHistory();
+        menu.setVisible(true);
     }
 
     public Menu getMenu(){
-        return this.menu;
+        return menu;
     }
 
 }
