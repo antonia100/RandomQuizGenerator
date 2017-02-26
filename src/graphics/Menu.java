@@ -1,7 +1,6 @@
 package graphics;
 
 import quiz.Handler;
-import quiz.HistoryEntry;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +9,6 @@ import java.awt.event.ActionEvent;
 public class Menu extends JPanel {
     private Handler handler;
     private JButton startBtn, exitBtn, historyBtn;
-    private UserHistory userHistory;
     private static final int MENUWIDTH = 300;
     private static final int MENUHEIGHT = 100;
     private static final int BUTTONSWIDTH = 100;
@@ -26,6 +24,7 @@ public class Menu extends JPanel {
         setMinimumSize(new Dimension(MENUWIDTH, MENUHEIGHT));
         setMaximumSize(new Dimension(MENUWIDTH, MENUHEIGHT));
         setPreferredSize(new Dimension(MENUWIDTH, MENUHEIGHT));
+
 
         startBtn = new JButton();
         startBtn.setPreferredSize(new Dimension(BUTTONSWIDTH, BUTTONSHEIGHT));
@@ -49,10 +48,16 @@ public class Menu extends JPanel {
         add(historyBtn);
         add(exitBtn);
 
+        setImageIcon();
+
     }
 
-    public void updateHistory(HistoryEntry entry){
-        userHistory.getArea().append(entry.buildEntryString(entry.getDate(), entry.getPoints()));
+    private void setImageIcon(){
+        ImageIcon icon = new ImageIcon("src/resources/back.png");
+        JLabel iconLabel = new JLabel();
+        iconLabel.setIcon(icon);
+
+        add(iconLabel);
     }
 
     public JButton getStartBtn() {

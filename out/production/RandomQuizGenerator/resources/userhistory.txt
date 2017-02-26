@@ -11,3 +11,5 @@
     Date: Sun Feb 26 15:52:34 EET 2017 |       Points: 0/8
     Date: Sun Feb 26 15:53:50 EET 2017 |       Points: 1/8
     Date: Sun Feb 26 16:06:54 EET 2017 |       Points: 0/8
+    Date: Sun Feb 26 16:33:11 EET 2017 |       Points: 0/8
+    Date: Sun Feb 26 16:35:45 EET 2017 |       Points: 2/8

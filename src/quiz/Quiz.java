@@ -39,7 +39,7 @@ public class Quiz {
         createQuiz();
     }
 
-    public void createQuiz(){
+    private void createQuiz(){
         display = new Display(this.title, this.width, this.height, this.handler);
 
         //show menu when first launching

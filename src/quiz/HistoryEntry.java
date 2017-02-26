@@ -42,11 +42,4 @@ public class HistoryEntry {
         return builder.toString();
     }
 
-    public String getDate(){
-        return this.date;
-    }
-
-    public int getPoints(){
-        return this.points;
-    }
 }
