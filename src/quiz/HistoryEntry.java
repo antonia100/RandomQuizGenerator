@@ -23,15 +23,30 @@ public class HistoryEntry {
         File file = new File(historyPath);
 
         try(FileOutputStream fos = new FileOutputStream(file, true)){
-            StringBuilder builder = new StringBuilder();
-            builder.append("    Date: "  + date + " |       ");
-            builder.append("Points: "  + points + "/8\n");
 
-            byte[] contentBytes = builder.toString().getBytes();
+            String entry = buildEntryString(date, points);
+
+            byte[] contentBytes = entry.toString().getBytes();
             fos.write(contentBytes);
 
         }  catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String buildEntryString(String date, int points){
+        StringBuilder builder = new StringBuilder();
+        builder.append("    Date: "  + date + " |       ");
+        builder.append("Points: "  + points + "/8\n");
+
+        return builder.toString();
+    }
+
+    public String getDate(){
+        return this.date;
+    }
+
+    public int getPoints(){
+        return this.points;
     }
 }

@@ -1,22 +1,22 @@
 package quiz.states;
 
-import graphics.QuizFrame;
+import graphics.QuizPanel;
 import quiz.Handler;
 
 public class QuizState {
     private Handler handler;
-    private QuizFrame quizFrame;
+    private QuizPanel quizPanel;
 
     public QuizState(Handler handler) {
         this.handler = handler;
     }
 
     public void showNewQuiz() {
-        quizFrame = new QuizFrame(this.handler);
-        handler.getDisplay().add(quizFrame);
+        quizPanel = new QuizPanel(this.handler);
+        handler.getDisplay().add(quizPanel);
     }
 
-    public QuizFrame getQuizFrame() {
-        return this.quizFrame;
+    public QuizPanel getQuizPanel() {
+        return this.quizPanel;
     }
 }

@@ -8,13 +8,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class QuizFrame extends JPanel{
+public class QuizPanel extends JPanel{
     private Handler handler;
     private JButton submitBtn;
     private ArrayList<QuestionPanel> questionPanels;
     private ArrayList<Question> generatedQuestions;
 
-    public QuizFrame( Handler handler){
+    public QuizPanel(Handler handler){
         this.handler = handler;
 
         createQuizFrame();

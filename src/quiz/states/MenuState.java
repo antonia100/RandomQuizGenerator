@@ -23,11 +23,6 @@ public class MenuState {
         menu.setVisible(false);
     }
 
-    public void showMenu(){
-        menu.updateHistory();
-        menu.setVisible(true);
-    }
-
     public Menu getMenu(){
         return menu;
     }

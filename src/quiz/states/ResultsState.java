@@ -1,28 +1,28 @@
 package quiz.states;
 
-import graphics.Results;
+import graphics.ResultsPanel;
 import quiz.Handler;
 
 
 public class ResultsState {
 
     private Handler handler;
-    private Results results;
+    private ResultsPanel resultsPanel;
 
     public ResultsState(Handler handler){
         this.handler = handler;
     }
 
     public void showNewResults(){
-        results = new Results(handler,
-                handler.getQuiz().getQuizState().getQuizFrame(),
+        resultsPanel = new ResultsPanel(handler,
+                handler.getQuiz().getQuizState().getQuizPanel(),
                 handler.getQuiz().getResult());
 
-        handler.getQuiz().getDisplay().add(results);
+        handler.getQuiz().getDisplay().add(resultsPanel);
     }
 
 
-    public Results getResults(){
-        return this.results;
+    public ResultsPanel getResultsPanel(){
+        return this.resultsPanel;
     }
 }

@@ -1,20 +1,18 @@
 package graphics;
 
 import quiz.Handler;
+import quiz.HistoryEntry;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 public class Menu extends JPanel {
     private Handler handler;
-    private JButton startBtn, exitBtn;
-    private JTextArea userHistory;
-    private static final int MENUWIDTH = 500;
-    private static final int MENUHEIGHT = 700;
+    private JButton startBtn, exitBtn, historyBtn;
+    private UserHistory userHistory;
+    private static final int MENUWIDTH = 300;
+    private static final int MENUHEIGHT = 100;
     private static final int BUTTONSWIDTH = 100;
     private static final int BUTTONSHEIGHT = 50;
 
@@ -22,7 +20,6 @@ public class Menu extends JPanel {
         this.handler = handler;
 
         createMenu();
-
     }
 
     private void createMenu() {
@@ -43,48 +40,28 @@ public class Menu extends JPanel {
             System.exit(0);
         });
 
+        historyBtn = new JButton();
+        historyBtn.setPreferredSize(new Dimension(BUTTONSWIDTH, BUTTONSHEIGHT));
+        historyBtn.setText("History");
+        historyBtn.setEnabled(true);
+
         add(startBtn);
+        add(historyBtn);
         add(exitBtn);
-    }
-
-    public void updateHistory() {
-        userHistory = new JTextArea();
-        JTextArea userHistory = new JTextArea();
-        userHistory.setPreferredSize(new Dimension(handler.getQuiz().getWidth() - 200, handler.getQuiz().getHeight() - 100));
-        userHistory.setLineWrap(true);
-        userHistory.setWrapStyleWord(true);
-        userHistory.setEditable(false);
-        userHistory.setBackground(Color.black);
-        userHistory.setFont(new Font("Verdana", Font.CENTER_BASELINE, 14));
-        userHistory.setForeground(Color.white);
-        JScrollPane scrollPane = new JScrollPane(userHistory);
-
-        String historyPath = "src/resources/userhistory.txt";
-        File file = new File(historyPath);
-
-        try (FileInputStream fis = new FileInputStream(file)) {
-
-            char current;
-
-            while (fis.available() > 0) {
-                current = (char) fis.read();
-                userHistory.append(String.valueOf(current));
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        add(userHistory);
 
     }
 
-    public JTextArea getUserHistory(){
-        return this.userHistory;
+    public void updateHistory(HistoryEntry entry){
+        userHistory.getArea().append(entry.buildEntryString(entry.getDate(), entry.getPoints()));
     }
 
     public JButton getStartBtn() {
         return this.startBtn;
+    }
+
+    public JButton getHistoryBtn(){
+        return this.historyBtn;
+
     }
 
 }

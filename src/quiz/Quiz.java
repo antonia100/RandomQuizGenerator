@@ -3,6 +3,7 @@ package quiz;
 import graphics.Display;
 import graphics.Menu;
 import graphics.Panel.QuestionPanel;
+import graphics.UserHistory;
 import quiz.questions.QuestionManager;
 import quiz.states.MenuState;
 import quiz.states.QuizState;
@@ -18,10 +19,8 @@ public class Quiz {
     private Handler handler;
     private Display display;
     private MenuState menuState;
-    private QuestionManager questionManager;
     private QuizGenerator quizGenerator;
     private QuizState quizState;
-    private Grader grader;
     private ArrayList<String> selectedOptions;
     private ResultsState resultsState;
     private int result;
@@ -32,8 +31,8 @@ public class Quiz {
         this.height = height;
 
         this.handler = new Handler(this);
-        this.questionManager = new QuestionManager(this.handler);
-        this.quizGenerator = new QuizGenerator(this.handler, this.questionManager);
+        QuestionManager questionManager = new QuestionManager(this.handler);
+        this.quizGenerator = new QuizGenerator(this.handler, questionManager);
         this.quizState = new QuizState(this.handler);
         this.resultsState = new ResultsState(this.handler);
 
@@ -46,10 +45,10 @@ public class Quiz {
         //show menu when first launching
         Menu menu = new Menu(this.handler);
         menuState = new MenuState(menu, this.handler);
-        menuState.showMenu();
         quizState = new QuizState(this.handler);
         //hide menu if user decides to start a quiz and to go quizstate
         activateStartBtn();
+        activateHistoryBtn();
     }
 
     private void activateStartBtn(){
@@ -61,18 +60,31 @@ public class Quiz {
 
     }
 
+    private void activateHistoryBtn(){
+        menuState.getMenu().getHistoryBtn().addActionListener((ActionEvent event) ->{
+            menuState.hideMenu();
+            UserHistory history = new UserHistory(this.handler);
+            display.add(history);
+
+            history.getBackBtn().addActionListener((ActionEvent event1)->{
+                history.setVisible(false);
+                menuState.getMenu().setVisible(true);
+            });
+        });
+    }
+
     private void activateSubmitButton(){
-        quizState.getQuizFrame().getSubmitBtn().addActionListener((ActionEvent event) -> {
+        quizState.getQuizPanel().getSubmitBtn().addActionListener((ActionEvent event) -> {
             //list the user selected options
             selectedOptions = new ArrayList<>();
 
             //iterate through the user's selected options
-            for(QuestionPanel questionPanel: quizState.getQuizFrame().getQuestionPanels()){
+            for(QuestionPanel questionPanel: quizState.getQuizPanel().getQuestionPanels()){
                 String selected = questionPanel.getSelected();
                 selectedOptions.add(selected);
             }
             //evaluate
-            Grader grader = new Grader(this.handler, quizState.getQuizFrame().getGeneratedQuestions(), selectedOptions);
+            Grader grader = new Grader(this.handler, quizState.getQuizPanel().getGeneratedQuestions(), selectedOptions);
             result = grader.gradeTotal();
 
             //add the new entry to the history
@@ -80,7 +92,7 @@ public class Quiz {
             HistoryEntry newEntry = new HistoryEntry(String.valueOf(now), result, this.handler);
 
             //hide the quiz
-            quizState.getQuizFrame().setVisible(false);
+            quizState.getQuizPanel().setVisible(false);
 
             //show results State
             resultsState.showNewResults();
@@ -91,19 +103,19 @@ public class Quiz {
 
 
     private void activateGoToMenuBtn(){
-        resultsState.getResults().getGoToMenuBtn().addActionListener((ActionEvent event) -> {
+        resultsState.getResultsPanel().getGoToMenuBtn().addActionListener((ActionEvent event) -> {
             //hide the answer panel
-            resultsState.getResults().setVisible(false);
+            resultsState.getResultsPanel().setVisible(false);
             //generate new menu
-            menuState.showMenu();
+            menuState.getMenu().setVisible(true);
         });
 
     }
 
     private void activateNewQuizBtn(){
-        resultsState.getResults().getNewQuizBtn().addActionListener((ActionEvent event)->{
+        resultsState.getResultsPanel().getNewQuizBtn().addActionListener((ActionEvent event)->{
             //hide the answer panel
-            resultsState.getResults().setVisible(false);
+            resultsState.getResultsPanel().setVisible(false);
             //generate new quiz
             quizState.showNewQuiz();
             activateSubmitButton();

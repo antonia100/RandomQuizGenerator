@@ -8,16 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Results extends JPanel{
+public class ResultsPanel extends JPanel{
 
     private Handler handler;
-    private QuizFrame quizFrame;
+    private QuizPanel quizPanel;
     private int result;
     private JButton newQuizBtn, goToMenuBtn;
 
-    public Results(Handler handler, QuizFrame quizFrame, int result){
+    public ResultsPanel(Handler handler, QuizPanel quizPanel, int result){
         this.handler = handler;
-        this.quizFrame = quizFrame;
+        this.quizPanel = quizPanel;
         this.result = result;
 
         createResultPanels();
@@ -38,7 +38,7 @@ public class Results extends JPanel{
         ArrayList<ResultPanel> resultPanels = new ArrayList<>();
         ArrayList<String> userInput = handler.getQuiz().getSelectedOptions();
         //check the result and add the generated panels to the list
-        for(QuestionPanel q: quizFrame.getQuestionPanels()){
+        for(QuestionPanel q: quizPanel.getQuestionPanels()){
             ResultPanel resultPanel = new ResultPanel(q.getQuestion(), q.getSelected());
             add(resultPanel);
         }
